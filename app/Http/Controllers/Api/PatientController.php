@@ -34,7 +34,7 @@ class PatientController extends Controller
 
         if ($patients && count($patients) > 0) {
             $data['data'] = $patients;
-            $data['msg'] = 'Pacientes encontrados';
+            $data['msg'] = 'Pacientes encontrados!';
             $data['status'] = 200;
         } else {
             $data['msg'] = 'Nenhum paciente foi encontrado';
@@ -90,7 +90,7 @@ class PatientController extends Controller
 
         if ($queryPatient) {
             $data['data'] = $queryPatient;
-            $data['msg'] = 'Paciente encontrado';
+            $data['msg'] = 'Paciente encontrado!';
         } else {
             $data['msg'] = 'O paciente informado não existe!';
             $data['status'] = 404;
@@ -113,7 +113,7 @@ class PatientController extends Controller
                 try {
                     $queryPatient->name = $request->name;
                     $queryPatient->save();
-                    $data['msg'] = 'Paciente atualizado com sucesso';
+                    $data['msg'] = 'Paciente atualizado com sucesso!';
                     $data['status'] = 204;
                 } catch (\Exception $e) {
                     $data['msg'] = 'Ocorreu um erro inesperado no servidor, tente novamente!';
@@ -143,7 +143,7 @@ class PatientController extends Controller
         if ($queryPatient) {
             try {
                 $queryPatient->delete();
-                $data['msg'] = 'Paciente deletado com sucesso';
+                $data['msg'] = 'Paciente deletado com sucesso!';
                 $data['status'] = 204;
             } catch (\Exception $e) {
                 $data['msg'] = 'Ocorreu um erro inesperado no servidor, tente novamente!';

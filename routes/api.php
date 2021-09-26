@@ -33,7 +33,11 @@ Route::namespace('API')->name('api.')->group(function () {
     Route::prefix('physiciants')->group(function () {
         Route::get('/', [PhiscianController::class, 'index'])->name('index_phiscians');
     });
-    Route::prefix('apppointments')->group(function () {
+    Route::prefix('appointments')->group(function () {
         Route::get('/', [AppointmentController::class, 'index'])->name('index_appointments');
+        Route::post('/', [AppointmentController::class, 'store'])->name('store_appointments');
+        Route::get('/{id}', [AppointmentController::class, 'show'])->name('show_appointments');
+        Route::put('/{id}', [AppointmentController::class, 'edit'])->name('edit_appointments');
+        Route::delete('/{id}', [AppointmentController::class, 'destroy'])->name('destroy_appointments');
     });
 });
