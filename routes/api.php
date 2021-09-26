@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\Api\PatientController;
+use App\Http\Controllers\Api\PhiscianController;
+use App\Models\Appointment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,5 +29,11 @@ Route::namespace('API')->name('api.')->group(function () {
         Route::get('/{id}', [PatientController::class, 'show'])->name('show_patients');
         Route::put('/{id}', [PatientController::class, 'edit'])->name('edit_patients');
         Route::delete('/{id}', [PatientController::class, 'destroy'])->name('destroy_patients');
+    });
+    Route::prefix('physiciants')->group(function () {
+        Route::get('/', [PhiscianController::class, 'index'])->name('index_phiscians');
+    });
+    Route::prefix('apppointments')->group(function () {
+        Route::get('/', [AppointmentController::class, 'index'])->name('index_appointments');
     });
 });
